@@ -20,6 +20,7 @@ RUN wget ${PROMETHEUS_URL}
 
 # Extract and remove the defaiut config that comes with the container
 RUN tar xvfz ${PROMETHEUS_TAR_FULLNAME} -C / && \
+    mv /${PROMETHEUS_TAR} /prometheus && \
     rm -rf /prometheus/prometheus.yml
 
 # Add user so we dont run as root
